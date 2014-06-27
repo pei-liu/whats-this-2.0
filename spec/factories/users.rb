@@ -1,6 +1,9 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
+require 'faker'
 
 FactoryGirl.define do
-  factory :user do
+  factory :user, aliases: [:player, :creator] do
+    username "Faker::Internet.username"
+    password "yolo"
+    password_confirmation "yolo"
   end
 end
