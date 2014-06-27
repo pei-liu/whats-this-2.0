@@ -1,7 +1,14 @@
+*.rbc
+capybara-*.html
 config/database.yml
 .rspec
-/db/*.pg
-/spec/tmp/*
+.rvmrc
 /.bundle
+/vendor/bundle
+/log/*
 /tmp
+/db/*.pg
 /public/system/*
+/spec/tmp/*
+**.orig
+rerun.txt
