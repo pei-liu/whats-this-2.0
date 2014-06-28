@@ -34,4 +34,11 @@ describe GamesController do
       expect(Game.last.rounds.count).to eq(1)
     end
   end
+
+  describe 'GET #completed' do
+    it 'assigns all completed games to @completed_games' do
+      get :completed
+      expect(assigns(:completed_games)).to eq [completed_game]
+    end
+  end
 end
