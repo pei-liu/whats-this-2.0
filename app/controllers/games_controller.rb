@@ -15,5 +15,6 @@ class GamesController < ApplicationController
   end
 
   def completed
+    @completed_games = Game.where(is_complete: true)
   end
 end
