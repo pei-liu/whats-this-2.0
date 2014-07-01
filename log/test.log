@@ -1121,3 +1121,419 @@ Migrating to CreateRounds (20140626010713)
   [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140626010713"]]
   [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Processing by GamesController#index as HTML
+  Rendered games/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (2.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1
+  [1m[36mSQL (5.9ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["password_digest", "$2a$04$v1B2MOMJzGU/COglnMZd4erGh539/yKI9DdECRw.aKBkhgtWsIJs6"], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "games" ("created_at", "updated_at", "user_id") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mGame Load (0.5ms)[0m  SELECT "games".* FROM "games" WHERE "games"."is_complete" = 'f'
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["password_digest", "$2a$04$Pmh4gecxbad284BHO8sykuDQXu/viGtkvBmdKaDY7X18wFWb.THYy"], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"round"=>{"content"=>"Round description goes here", "content_type"=>"description"}}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "games" ("created_at", "updated_at", "user_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["user_id", 2]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["content", "<27 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["game_id", 2], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["user_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 13ms (ActiveRecord: 4.3ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "games"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["password_digest", "$2a$04$8xFasrkciU1nMTcQ63CXJONtsY8EEjMZQBfVFIciML4uxsLOVScxu"], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "rounds"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"round"=>{"content"=>"Round description goes here", "content_type"=>"description"}}
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "games" ("created_at", "updated_at", "user_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["user_id", 3]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["content", "<27 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["game_id", 3], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["user_id", 3]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 6ms (ActiveRecord: 1.8ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "rounds"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["password_digest", "$2a$04$niKPaAk7nC3Iqc6TBFW9.ueouy70JIVwwdPzBaY4WDQ4M/2cDd4i2"], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by GamesController#create as HTML
+  Parameters: {"round"=>{"content"=>"Round description goes here", "content_type"=>"description"}}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "games" ("created_at", "updated_at", "user_id") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["user_id", 4]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["content", "<27 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["game_id", 4], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["user_id", 4]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/
+Completed 302 Found in 10ms (ActiveRecord: 4.3ms)
+  [1m[36mGame Load (1.4ms)[0m  [1mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT 1[0m
+  [1m[35m (1.5ms)[0m  SELECT COUNT(*) FROM "rounds" WHERE "rounds"."game_id" = $1  [["game_id", 4]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by GamesController#completed as HTML
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["password_digest", "$2a$04$6vRP1nVNpXbh1cpDEqLAVeF/93y.M7Z6bM.wp7OcLIt3FY2rg2xSu"], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "games" ("created_at", "is_complete", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["is_complete", true], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["user_id", 5]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mGame Load (0.3ms)[0m  SELECT "games".* FROM "games" WHERE "games"."is_complete" = 't'
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["password_digest", "$2a$04$G1JH.Y01wwl4Z1hZA1ecVuFZ99/dMaammVpF/mxmDJCGH6cIFYJj6"], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "games" ("created_at", "updated_at", "user_id") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["user_id", 6]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["password_digest", "$2a$04$hp4/eMYrucqfcARgTTRLYeFK3Kbhd6UjWtiECEVRvQaRJTaVRRjh."], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "games" ("created_at", "updated_at", "user_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["user_id", 7]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "rounds" WHERE "rounds"."game_id" = $1[0m  [["game_id", 7]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["password_digest", "$2a$04$WckimgK3Nh4X35Wtw1uX8.WYKIXoWyoFGy4oqFAssWGQx.Ko3utNG"], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "games" ("created_at", "updated_at", "user_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["user_id", 8]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["game_id", 8], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["game_id", 8], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["game_id", 8], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["game_id", 8], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["game_id", 8], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["game_id", 8], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["game_id", 8], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["game_id", 8], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["game_id", 8], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00], ["game_id", 8], ["updated_at", Tue, 01 Jul 2014 23:17:30 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "rounds" WHERE "rounds"."game_id" = $1[0m  [["game_id", 8]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["password_digest", "$2a$04$CkfsnJ7mQgICbSR/QwumX.BMTdFJ066AwUsj76ecVimHbDDzPVQXK"], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "games" ("created_at", "updated_at", "user_id") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["user_id", 9]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["password_digest", "$2a$04$3mwwTIHCpt4aRA0aJ863h.97SSsmSzKr3HutKi5yRF8ioSbIPZChO"], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "games" ("created_at", "updated_at", "user_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["user_id", 10]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["game_id", 10], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["game_id", 10], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["game_id", 10], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["game_id", 10], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["game_id", 10], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["game_id", 10], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["game_id", 10], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["game_id", 10], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["game_id", 10], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["game_id", 10], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "rounds" WHERE "rounds"."game_id" = $1[0m  [["game_id", 10]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.9ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["password_digest", "$2a$04$0M6bxwyP8lcaoFOdRcFreuigCidlqIw7tJSYx.75zWK8cV2/gsLD2"], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[36m (0.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "games" ("created_at", "updated_at", "user_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["user_id", 11]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "rounds" WHERE "rounds"."game_id" = $1[0m  [["game_id", 11]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["password_digest", "$2a$04$5n2huE22VM5zHJTGLVv/pecVKkMi2XwisW3HgC2GljhBOIVBIk4Qu"], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "rounds"
+Processing by GamesController#create as HTML
+  Parameters: {"round"=>{"content"=>"Round description goes here", "content_type"=>"description"}}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "games" ("created_at", "updated_at", "user_id") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["user_id", 12]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["content", "<27 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["game_id", 12], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["user_id", 12]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/
+Completed 302 Found in 5ms (ActiveRecord: 1.7ms)
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "rounds"[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["password_digest", "$2a$04$OgrAEJzuz7nYkLMl5mETmOq4m1QoDe71jbgX0z5iSV0XyNlHJzwYq"], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "games"
+Processing by GamesController#create as HTML
+  Parameters: {"round"=>{"content"=>"Round description goes here", "content_type"=>"description"}}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "games" ("created_at", "updated_at", "user_id") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["user_id", 13]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["content", "<27 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["game_id", 13], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["user_id", 13]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/
+Completed 302 Found in 5ms (ActiveRecord: 1.3ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "games"[0m
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["password_digest", "$2a$04$9E7bzJoUEihojAQRCXdRb.BNg.rGmBm42k2nVUR3Qxs1lS2TbWlbu"], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#create as HTML
+  Parameters: {"round"=>{"content"=>"Round description goes here", "content_type"=>"description"}}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "games" ("created_at", "updated_at", "user_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["user_id", 14]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["content", "<27 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["game_id", 14], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["user_id", 14]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 4ms (ActiveRecord: 1.5ms)
+  [1m[35mGame Load (0.7ms)[0m  SELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "rounds" WHERE "rounds"."game_id" = $1[0m  [["game_id", 14]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+Processing by GamesController#index as HTML
+Completed 200 OK in 47ms (Views: 45.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["password_digest", "$2a$04$cfo7hgR.QtiHYcE/u/XtxueHL2SITNMncTDMBufCOUdwJRmNsiKxO"], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "games" ("created_at", "updated_at", "user_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["user_id", 15]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mGame Load (0.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."is_complete" = 'f'[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Processing by GamesController#completed as HTML
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["password_digest", "$2a$04$zqBB8uNy5dznJM.OZg.b6OUk4aryXQ5rHWXc3OvBwVC41gOMT5eeC"], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "games" ("created_at", "is_complete", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["is_complete", true], ["updated_at", Tue, 01 Jul 2014 23:18:32 UTC +00:00], ["user_id", 16]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mGame Load (0.3ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."is_complete" = 't'[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.8ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1
+  [1m[36mSQL (4.2ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["password_digest", "$2a$04$OeGpD/E6stCCcGlubvs.b.Rxbyjyt3zHnYPtzH8tuyET7cddb4a0i"], ["updated_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "games" ("created_at", "updated_at", "user_id") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["updated_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["user_id", 17]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["password_digest", "$2a$04$grqZpxtJG01tGwcDwCz0PersWZLglsjY9S31IhUS9ZgLDbu1q4lBa"], ["updated_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "games" ("created_at", "updated_at", "user_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["updated_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["user_id", 18]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "rounds" WHERE "rounds"."game_id" = $1[0m  [["game_id", 18]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["password_digest", "$2a$04$hvH9L5ctWtRGMmsAj2S2i.gY9JEatdGXOVHAoWerDwoBi3J1Fb/Ri"], ["updated_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "games" ("created_at", "updated_at", "user_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["updated_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["user_id", 19]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["game_id", 19], ["updated_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["game_id", 19], ["updated_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["game_id", 19], ["updated_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["game_id", 19], ["updated_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["game_id", 19], ["updated_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["game_id", 19], ["updated_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["game_id", 19], ["updated_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["game_id", 19], ["updated_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["game_id", 19], ["updated_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "<7 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["game_id", 19], ["updated_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "rounds" WHERE "rounds"."game_id" = $1[0m  [["game_id", 19]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by GamesController#completed as HTML
+  Rendered games/completed.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["password_digest", "$2a$04$yXJgy2NbDHS4PO/T43U8mO8qjMC7xKrfDQzHQd87sBKtkdlUdkCj2"], ["updated_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "games" ("created_at", "is_complete", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["is_complete", true], ["updated_at", Tue, 01 Jul 2014 23:18:43 UTC +00:00], ["user_id", 20]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mGame Load (0.5ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."is_complete" = 't'[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:18:44 UTC +00:00], ["password_digest", "$2a$04$vgCpQwuji3AxU.xoUTMe/OPt.cymM.l04vxLGpd0SgULjCJKbSQaW"], ["updated_at", Tue, 01 Jul 2014 23:18:44 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#create as HTML
+  Parameters: {"round"=>{"content"=>"Round description goes here", "content_type"=>"description"}}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "games" ("created_at", "updated_at", "user_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Tue, 01 Jul 2014 23:18:44 UTC +00:00], ["updated_at", Tue, 01 Jul 2014 23:18:44 UTC +00:00], ["user_id", 21]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["content", "<27 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:44 UTC +00:00], ["game_id", 21], ["updated_at", Tue, 01 Jul 2014 23:18:44 UTC +00:00], ["user_id", 21]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 43ms (ActiveRecord: 1.9ms)
+  [1m[35mGame Load (0.6ms)[0m  SELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "rounds" WHERE "rounds"."game_id" = $1[0m  [["game_id", 21]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:18:44 UTC +00:00], ["password_digest", "$2a$04$uGG9S6bIGIECRD78NJGLeec3/wRDYKgx5ILlOlfF28hQFhrJddu5."], ["updated_at", Tue, 01 Jul 2014 23:18:44 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "rounds"
+Processing by GamesController#create as HTML
+  Parameters: {"round"=>{"content"=>"Round description goes here", "content_type"=>"description"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "games" ("created_at", "updated_at", "user_id") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:18:44 UTC +00:00], ["updated_at", Tue, 01 Jul 2014 23:18:44 UTC +00:00], ["user_id", 22]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["content", "<27 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:44 UTC +00:00], ["game_id", 22], ["updated_at", Tue, 01 Jul 2014 23:18:44 UTC +00:00], ["user_id", 22]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/
+Completed 302 Found in 4ms (ActiveRecord: 1.4ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "rounds"[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:18:44 UTC +00:00], ["password_digest", "$2a$04$YSgmnOgppEcUlVm38qjwzOD/0JkLADANspP5hMu14yWxzEKynAbKy"], ["updated_at", Tue, 01 Jul 2014 23:18:44 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "games"
+Processing by GamesController#create as HTML
+  Parameters: {"round"=>{"content"=>"Round description goes here", "content_type"=>"description"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "games" ("created_at", "updated_at", "user_id") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:18:44 UTC +00:00], ["updated_at", Tue, 01 Jul 2014 23:18:44 UTC +00:00], ["user_id", 23]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "rounds" ("content", "content_type", "created_at", "game_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["content", "<27 bytes of binary data>"], ["content_type", "description"], ["created_at", Tue, 01 Jul 2014 23:18:44 UTC +00:00], ["game_id", 23], ["updated_at", Tue, 01 Jul 2014 23:18:44 UTC +00:00], ["user_id", 23]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/
+Completed 302 Found in 4ms (ActiveRecord: 1.4ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "games"[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by GamesController#index as HTML
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Faker::Internet.username' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Tue, 01 Jul 2014 23:18:44 UTC +00:00], ["password_digest", "$2a$04$EDc.k850eYRUbyheXqyiTOAIYEgnuxprOxKGdduq8g6bnKJYpjxXS"], ["updated_at", Tue, 01 Jul 2014 23:18:44 UTC +00:00], ["username", "Faker::Internet.username"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "games" ("created_at", "updated_at", "user_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Tue, 01 Jul 2014 23:18:44 UTC +00:00], ["updated_at", Tue, 01 Jul 2014 23:18:44 UTC +00:00], ["user_id", 24]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mGame Load (0.3ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."is_complete" = 'f'[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
