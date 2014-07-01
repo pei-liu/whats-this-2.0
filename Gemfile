@@ -32,12 +32,14 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bcrypt-ruby', '~> 3.1.2'
 
+gem 'foundation-rails'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
-group :test, :development do 
+group :test, :development do
   gem 'rspec-rails', '~> 2.14'
   gem 'factory_girl_rails', '~> 4.2.1'
 end
