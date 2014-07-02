@@ -37,7 +37,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :test, :development do 
+group :test, :development do
   gem 'rspec-rails', '~> 2.14'
   gem 'factory_girl_rails', '~> 4.2.1'
 end
@@ -48,7 +48,7 @@ group :test do
   gem 'database_cleaner', '~> 1.3.0'
   gem 'launchy', '~> 2.4.2'
   gem 'shoulda-matchers', '~> 2.6.1'
-  gem 'simplecov', :require => false, :group => :test
+  gem 'simplecov', :require => false
 end
 
 # Use ActiveModel has_secure_password
