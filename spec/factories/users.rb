@@ -2,7 +2,7 @@ require 'faker'
 
 FactoryGirl.define do
   factory :user, aliases: [:player, :creator] do
-    username "Faker::Internet.username"
+    username Faker::Internet.user_name
     password "yolo"
     password_confirmation "yolo"
 
