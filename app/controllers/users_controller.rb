@@ -29,6 +29,14 @@ class UsersController < ApplicationController
   end
 
   def games
+    if user_logged_in?
+      @user = User.find(session[:user_id])
+      @created_games = @user.games
+      @played_rounds = @user.rounds
+      render 'games'
+    else
+      redirect_to root_path
+    end
   end
 
 
