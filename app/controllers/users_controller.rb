@@ -24,6 +24,8 @@ class UsersController < ApplicationController
   end
 
   def logout
+    session.clear
+    render nothing: true
   end
 
   def games
