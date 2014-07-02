@@ -15,6 +15,13 @@
 
     <%= yield %>
     <%= javascript_include_tag "application" %>
+
+    <% flash.each do |key, value| %>
+          <div class="<%= flash_class(key) %>">
+                <%= value %>
+          </div>
+    <% end %>
+    
   </body>
 </html>
 
