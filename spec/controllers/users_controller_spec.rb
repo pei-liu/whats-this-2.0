@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe UsersController do
+  let(:user) { create :user }
   # let(:user_with_games_and_rounds) { create :user_with_games_and_rounds }
 
   describe "POST create" do
@@ -37,11 +38,22 @@ describe UsersController do
 
   describe "POST login" do
     context "with VALID credentials" do
-      it "saves the user id to sesison[:user_id]"
+      it "saves the user id to session[:user_id]" do
+        post :login, user: { username: user.username, password: user.password }
+        expect(session[:user_id]).to eq user.id
+      end
     end
 
     context "with INVALID credentials" do
-      it "does NOT save the user id to sesison[:user_id]"
+      it "does NOT save the user id to session[:user_id] if username doesn't exist" do
+        post :login, user: { username: 'nonexistent_user', password: 'yolo' }
+        expect(session[:user_id]).to eq nil
+      end
+
+      it "does NOT save the user id to session[:user_id] if password is incorrect" do
+        post :login, user: { username: user.username, password: "incorrect_pw" }
+        expect(session[:user_id]).to eq nil
+      end
     end
   end
 
