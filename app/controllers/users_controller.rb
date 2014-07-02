@@ -4,14 +4,23 @@ class UsersController < ApplicationController
     new_user = User.new(user_params)
     if new_user.save
       session[:user_id] = new_user.id
-      render nothing: true
     else
-      flash.now.alert = "Error"
-      render nothing: true
+      flash.now.alert = "Signup Error"
     end
+    render nothing: true
   end
 
   def login
+    if user = User.find_by(username: user_params[:username])
+      if user.authenticate(user_params[:password])
+        session[:user_id] = user.id
+      else
+        flash.now.alert = "Invalid password"
+      end
+    else
+      flash.now.alert = "Invalid username"
+    end
+    render nothing: true
   end
 
   def logout
