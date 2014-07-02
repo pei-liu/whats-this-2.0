@@ -58,7 +58,11 @@ describe UsersController do
   end
 
   describe "GET logout" do
-    it "resets the session"
+    it "resets the session" do
+      session[:user_id] = user.id
+      get :logout
+      expect(session[:user_id]).to eq nil
+    end
   end
 
   describe "GET games" do
