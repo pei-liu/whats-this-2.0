@@ -7,12 +7,12 @@ class UsersController < ApplicationController
     else
       flash.now.alert = "Signup Error"
     end
-    render nothing: true
+    redirect_to users_games_path
   end
 
   def login
-    if user = User.find_by(username: user_params[:username])
-      if user.authenticate(user_params[:password])
+    if user = User.find_by(username: params[:username])
+      if user.authenticate(params[:password])
         session[:user_id] = user.id
       else
         flash.now.alert = "Invalid password"
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     else
       flash.now.alert = "Invalid username"
     end
-    render nothing: true
+    redirect_to users_games_path
   end
 
   def logout

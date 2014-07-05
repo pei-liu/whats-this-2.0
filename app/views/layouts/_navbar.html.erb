@@ -20,9 +20,7 @@
         <li><%= link_to "Completed Games", games_completed_path %></li>
       </ul>
 
-
       <ul class="nav navbar-nav navbar-right">
-
         <% if user_logged_in? %>
           <li><%= link_to "Log out", users_logout_path %></li>
         <% else %>
@@ -30,47 +28,13 @@
             <a href="#"
                data-toggle="modal"
                data-target="#loginModal">Log In</a>
-            <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&#215;</button>
-                        <h4 class="modal-title" id="myModalLabel">Login</h4>
-                        </div>
-                        <div class="modal-body">
-                            <h3>Modal Body</h3>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-              </div>
-            </div>
+            <%= render 'users/login' %>
           </li>
           <li>
             <a href="#"
                data-toggle="modal"
                data-target="#signupModal">Sign Up</a>
-            <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&#215;</button>
-                        <h4 class="modal-title" id="myModalLabel">Create A New Account</h4>
-                        </div>
-                        <div class="modal-body">
-
-                          <%= render 'users/signup' %>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Create</button>
-                    </div>
-                </div>
-              </div>
-            </div>
+            <%= render 'users/signup' %>
           </li>   
         <% end %>   
       </ul>
