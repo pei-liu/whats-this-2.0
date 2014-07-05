@@ -3,23 +3,28 @@ class UsersController < ApplicationController
     new_user = User.new(user_params)
     if new_user.save
       session[:user_id] = new_user.id
+      flash[:success] = "Account successfully created. Welcome #{new_user.username}!"
+      redirect_to users_games_path
     else
-      flash.now.alert = "Signup Error"
+      flash[:error] = "Signup Error"
+      redirect_to root_path
     end
-    redirect_to users_games_path
   end
 
   def login
     if user = User.find_by(username: user_params[:username])
       if user.authenticate(user_params[:password])
         session[:user_id] = user.id
+        flash[:success] = "Welcome back #{user.username}!"
+        redirect_to users_games_path
       else
-        flash.now.alert = "Invalid password"
+        flash[:error] = "Invalid password"
+        redirect_to root_path
       end
     else
-      flash.now.alert = "Invalid username"
+        flash[:error] = "Invalid username"
+        redirect_to root_path
     end
-    redirect_to users_games_path
   end
 
   def logout
