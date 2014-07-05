@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   def logout
     session.clear
-    render nothing: true
+    redirect_to root_path
   end
 
   def games

@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   def index
+    @user = User.new
     @games = Game.where(is_complete: false)
   end
 

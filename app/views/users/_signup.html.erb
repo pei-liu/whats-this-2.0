@@ -1,0 +1,16 @@
+                              <%= form_for @user do |f| %>
+
+                                <%= f.label :username, "Username" %><br />
+                                <%= f.text_field :username, class: 'form-control', placeholder: "Username" %><br>
+
+                                <%= f.label :password %><br />
+                                <%= f.password_field :password, class: 'form-control', placeholder: "Password"  %><br>
+
+                                <%= f.label :password_confirmation, "Password Confirmation" %><br />
+                                <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Confirm Password"  %><br>
+
+                                <div class="text-center">
+                                  <%= f.submit "Create Account!", class:'btn btn-info btn-sm text-center'%>
+                                </div>
+
+                              <% end %>
