@@ -32,7 +32,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bcrypt-ruby', '~> 3.1.2'
 
-gem 'foundation-rails'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

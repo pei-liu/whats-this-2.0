@@ -1,0 +1,31 @@
+
+
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&#215;</button>
+        <h4 class="modal-title" id="myModalLabel">Create A New Account</h4>
+      </div>
+
+      <div class="modal-body">
+        <%= form_tag users_path do %>
+          <%= label_tag :username %> <br>
+          <%= text_field_tag "user[username]", params[:username], class: 'form-control' %><br>
+
+          <%= label_tag :password %> <br>
+          <%= password_field_tag "user[password]", params[:passwrd], class: 'form-control' %><br>
+
+          <%= label_tag :password_confirmation %> <br>
+          <%= password_field_tag "user[password_confirmation]", params[:password_confirmation], class: 'form-control' %><br>
+
+      </div>
+      <div class="modal-footer">
+        <%= submit_tag(value = "Create Account!", class:'btn btn-primary') %>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <% end %>
+  </div>
+    </div><!-- /.modal-content -->
+  </div> <!-- /.modal-dialog -->
+</div> <!-- /.modal fade -->
