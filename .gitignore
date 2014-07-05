@@ -12,3 +12,4 @@ config/database.yml
 /spec/tmp/*
 **.orig
 rerun.txt
+coverage
