@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def create
-    # puts '*' * 100
     new_user = User.new(user_params)
     if new_user.save
       session[:user_id] = new_user.id
@@ -11,8 +10,8 @@ class UsersController < ApplicationController
   end
 
   def login
-    if user = User.find_by(username: params[:username])
-      if user.authenticate(params[:password])
+    if user = User.find_by(username: user_params[:username])
+      if user.authenticate(user_params[:password])
         session[:user_id] = user.id
       else
         flash.now.alert = "Invalid password"

@@ -13,10 +13,10 @@
         <div class="modal-body">
         <%= form_tag users_login_path do %>
             <%= label_tag :username %> <br>
-            <%= text_field_tag :username, params[:username], class: 'form-control' %><br>
+            <%= text_field_tag "user[username]", params[:username], class: 'form-control' %><br>
 
             <%= label_tag :password %> <br>
-            <%= password_field_tag :password, params[:password], class: 'form-control' %>
+            <%= password_field_tag "user[password]", params[:password], class: 'form-control' %>
         </div>
 
         <div class="modal-footer">

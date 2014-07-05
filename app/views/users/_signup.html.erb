@@ -10,24 +10,21 @@
       </div>
 
       <div class="modal-body">
-      <%= form_for @user do |f| %>
+        <%= form_tag users_path do %>
+          <%= label_tag :username %> <br>
+          <%= text_field_tag "user[username]", params[:username], class: 'form-control' %><br>
 
-        <%= f.label :username, "Username" %><br />
-        <%= f.text_field :username, class: 'form-control', placeholder: "Username" %><br>
+          <%= label_tag :password %> <br>
+          <%= password_field_tag "user[password]", params[:passwrd], class: 'form-control' %><br>
 
-        <%= f.label :password %><br />
-        <%= f.password_field :password, class: 'form-control', placeholder: "Password"  %><br>
-
-        <%= f.label :password_confirmation, "Password Confirmation" %><br />
-        <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Confirm Password"  %><br>
+          <%= label_tag :password_confirmation %> <br>
+          <%= password_field_tag "user[password_confirmation]", params[:password_confirmation], class: 'form-control' %><br>
 
       </div>
       <div class="modal-footer">
-
-        <%= f.submit "Create Account!", class:'btn btn-primary'%>
-
+        <%= submit_tag(value = "Create Account!", class:'btn btn-primary') %>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       <% end %>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
   </div>
     </div><!-- /.modal-content -->
   </div> <!-- /.modal-dialog -->
