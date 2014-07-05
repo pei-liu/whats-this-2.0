@@ -51,7 +51,7 @@ group :test do
   gem 'database_cleaner', '~> 1.3.0'
   gem 'launchy', '~> 2.4.2'
   gem 'shoulda-matchers', '~> 2.6.1'
-  gem 'simplecov', :require => false, :group => :test
+  gem 'simplecov', :require => false
 end
 
 # Use ActiveModel has_secure_password
