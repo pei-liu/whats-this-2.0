@@ -1,7 +1,11 @@
 class GamesController < ApplicationController
   def index
-    @user = User.new
-    @games = Game.where(is_complete: false)
+    games = Game.where(is_complete: false)
+    @first_game_set = games.shift(3)
+    @remaining_game_sets = []
+    while games.any?
+      @remaining_game_sets << games.shift(3)
+    end
   end
 
   def create

@@ -7,10 +7,12 @@ describe GamesController do
   let(:completed_game) { create :completed_game }
 
   describe "GET #index" do
-    it 'assigns all incomplete games to @games' do
-      get :index
-      expect(assigns(:games)).to eq [game]
-    end
+    # it 'assigns all incomplete games to @games' do
+    #   get :index
+    #   expect(assigns(:games)).to eq [game]
+    # end
+    it 'assigns 3 incomplete games to @first_game_set'
+    it 'assigns rest of incomplete games to @remaining_game_sets'
   end
 
   describe "POST #create" do
