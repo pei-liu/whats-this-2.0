@@ -1,3 +1,6 @@
+<!-- @first_game_set -->
+<!-- @remaining_game_sets -->
+
 <div class="container">
   <div class="col-md-12">
    <h1>Active Games</h1>
@@ -9,43 +12,33 @@
       <div class="carousel-inner">
         <div class="item active">
           <div class="row">
-            <div class="col-sm-4">
 
-              <div class="svg-container">
-                <%= @games.last.rounds.last.prepared_content %>
+            <% @first_game_set.each do |game| %>
+              <div class="col-sm-4">
+                <div class="svg-container">
+                  <a href="#"><%= game.rounds.last.prepared_content %></a>
+                </div>
               </div>
+            <% end %>
 
-            </div>
-            <div class="col-sm-4"><a href="#x"><img src="http://placehold.it/500x500" alt="Image" class="img-responsive"></a>
-            </div>
-            <div class="col-sm-4"><a href="#x"><img src="http://placehold.it/500x500" alt="Image" class="img-responsive"></a>
-            </div>
-          </div>
-          <!--/row-->
-        </div>
-        <!--/item-->
-        <div class="item">
-          <div class="row">
-            <div class="col-sm-4"><a href="#x" class="thumbnail"><img src="http://placehold.it/500x500" alt="Image" class="img-responsive"></a>
-            </div>
-            <div class="col-sm-4"><a href="#x" class="thumbnail"><img src="http://placehold.it/500x500" alt="Image" class="img-responsive"></a>
-            </div>
-            <div class="col-sm-4"><a href="#x" class="thumbnail"><img src="http://placehold.it/500x500" alt="Image" class="img-responsive"></a>
+          </div><!--/row-->
+        </div><!--/item-->
+
+        <% @remaining_game_sets.each do |set| %>
+          <div class="item">
+            <div class="row">
+              <% set.each do |game| %>
+                <div class="col-sm-4">
+                  <div class="svg-container">
+                    <a href="#"><%= game.rounds.last.prepared_content %></a>
+                  </div>
+                </div>
+              <% end %>
             </div>
           </div>
-          <!--/row-->
-        </div>
-        <!--/item-->
-        <div class="item">
-          <div class="row">
-            <div class="col-sm-4"><a href="#x" class="thumbnail"><img src="http://placehold.it/500x500" alt="Image" class="img-responsive"></a>
-            </div>
-            <div class="col-sm-4"><a href="#x" class="thumbnail"><img src="http://placehold.it/500x500" alt="Image" class="img-responsive"></a>
-            </div>
-          </div>
-          <!--/row-->
-        </div>
-        <!--/item-->
+        <% end %>
+
+
       </div>
       <!--/carousel-inner--> <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
 
