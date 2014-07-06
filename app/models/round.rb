@@ -9,8 +9,8 @@ class Round < ActiveRecord::Base
     if self.content_type == "description"
       content
     elsif self.content_type == "drawing"
-      content.gsub!(/width="\d+"/, 'width="300"')
-      content.gsub!(/height="\d+"/, 'height="300" viewBox="0 0 500 500"')
+      content.gsub!(/width="\d+"/, '')
+      content.gsub!(/height="\d+"/, 'preserveAspectRatio="xMinYMin meet" viewBox="0 0 500 500"')
       content.html_safe
     end
   end
