@@ -20,12 +20,10 @@
           <%= label_tag :password_confirmation %> <br>
           <%= password_field_tag "user[password_confirmation]", params[:password_confirmation], class: 'form-control' %><br>
 
-      </div>
-      <div class="modal-footer">
-        <%= submit_tag(value = "Create Account!", class:'btn btn-primary') %>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      <% end %>
-  </div>
+          <%= submit_tag(value = "Create Account!", class:'btn btn-primary') %>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <% end %>
+      </div><!-- /.modal-body -->
     </div><!-- /.modal-content -->
   </div> <!-- /.modal-dialog -->
 </div> <!-- /.modal fade -->
