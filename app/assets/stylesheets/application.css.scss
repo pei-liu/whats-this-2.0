@@ -1,4 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "application_color_palette";
 @import "carousel";
-@import "rounds"
+@import "navbar";
+@import "rounds";
+
+body {
+  background-image: url('paper.png');
+}

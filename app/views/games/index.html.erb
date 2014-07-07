@@ -15,9 +15,20 @@
 
             <% @first_game_set.each do |game| %>
               <div class="col-sm-4">
-                <div class="svg-container">
-                  <a href="#"><%= game.rounds.last.prepared_content %></a>
-                </div>
+
+                <% if game.rounds.last.content_type == "drawing" %>
+                  <div class="svg-container">
+                    <a href="#"><%= game.rounds.last.prepared_content %></a>
+                  </div>
+                <% else %>
+                  <div class="description-container">
+                    <div class="inner-description-container">
+                      <a href="#"><%= game.rounds.last.prepared_content %></a>
+                    </div>
+                  </div>
+                <% end %>
+
+
               </div>
             <% end %>
 
@@ -29,9 +40,19 @@
             <div class="row">
               <% set.each do |game| %>
                 <div class="col-sm-4">
+
+
+                <% if game.rounds.last.content_type == "drawing" %>
                   <div class="svg-container">
                     <a href="#"><%= game.rounds.last.prepared_content %></a>
                   </div>
+                <% else %>
+                  <div class="description-container">
+                    <a href="#"><%= game.rounds.last.prepared_content %></a>
+                  </div>
+                <% end %>
+
+
                 </div>
               <% end %>
             </div>
