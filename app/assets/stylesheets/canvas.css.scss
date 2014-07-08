@@ -1,3 +1,18 @@
 canvas {
     border: 3px solid black;
 }
+
+.brush-width-controller {
+  margin-bottom: 20px;
+}
+
+.brush-color-controller {
+  margin-bottom: 50px;
+}
+
+.brush-width-controller span,
+.brush-color-controller span {
+  color: red;
+  font-size: 1.1em;
+  padding-right: 10px;
+}
