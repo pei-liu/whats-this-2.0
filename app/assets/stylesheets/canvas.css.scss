@@ -1,18 +1,14 @@
 canvas {
-    border: 3px solid black;
+  border: 3px solid black;
+  // z-index: -1;
 }
 
 .brush-width-controller {
   // margin-bottom: 20px;
-  width: 10%;
+  width: 150px;
 }
 
-.brush-color-controller {
-  margin-bottom: 100px;
-}
-
-.brush-width-controller span,
-.brush-color-controller span {
+.brush-width-controller span {
   color: red;
   font-size: 1.1em;
   padding-right: 10px;

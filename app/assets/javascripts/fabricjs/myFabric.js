@@ -13,11 +13,6 @@ ready = function() {
     canvas.freeDrawingBrush.width = 11;
     canvas.freeDrawingBrush.color = "#fff";
 
-    // $('.color')[0].addEventListener('change', function (e) {
-    //     // console.log($(this).css('background-color'));
-    //     canvas.freeDrawingBrush.color = $(this).css('background-color');
-    // })
-
     // $('#brush-width')[0].addEventListener('change', function(e) {
     //     canvas.freeDrawingBrush.width = 2 + parseInt($(this).val()) * 3;
     //     console.log("width: " + canvas.freeDrawingBrush.width)
