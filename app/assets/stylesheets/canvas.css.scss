@@ -1,15 +1,35 @@
 canvas {
   border: 3px solid black;
-  // z-index: -1;
+  margin-top: 25px;
+}
+
+.canvas-container {
+  clear: left;
 }
 
 .brush-width-controller {
-  // margin-bottom: 20px;
   width: 150px;
+  margin-bottom: 25px;
 }
 
 .brush-width-controller span {
   color: red;
   font-size: 1.1em;
   padding-right: 10px;
+}
+
+.brush-color-controller {
+  padding: 0;
+  list-style-type: none;
+  .color-option {
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin-right: 10px;
+    border: 2px solid black;
+  }
+  li:hover {
+    cursor: hand;
+    cursor: pointer;
+  }
 }
