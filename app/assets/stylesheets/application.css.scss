@@ -1,9 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "application_color_palette";
+@import "canvas";
 @import "carousel";
 @import "navbar";
 @import "rounds";
+@import "new_game";
 
 body {
   background-image: url('paper.png');

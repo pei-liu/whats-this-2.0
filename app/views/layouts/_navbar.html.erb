@@ -17,6 +17,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+        <% if user_logged_in? %>
+          <li><%= link_to "Start New Game", games_new_path %></li>
+        <% end %>
         <li><%= link_to "Completed Games", games_completed_path %></li>
       </ul>
 

@@ -1,0 +1,52 @@
+canvas {
+  border: 3px solid black;
+  margin-top: 25px;
+}
+
+.canvas-container {
+  clear: left;
+}
+
+.brush-width-controller {
+  width: 300px;
+  margin-bottom: 25px;
+
+  #brush-width-label {
+    color: red;
+    font-size: 1.1em;
+    padding-right: 10px;
+  }
+  .width-option {
+    font-size: 1.3em;
+    margin-right: 10px;
+  }
+  .default {
+    border-bottom: 3px solid black;
+  }
+  .width-option:hover {
+    background-color: $color-brush-width-highlight;
+    cursor: hand;
+    cursor: pointer;
+  }
+}
+
+.brush-color-controller {
+  padding: 0;
+  list-style-type: none;
+  .color-option {
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin-right: 10px;
+    border: 2px solid $color-color-option-border;
+  }
+  .default {
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px $color-color-option-box-shadow;
+  }
+  li:hover {
+    cursor: hand;
+    cursor: pointer;
+  }
+}

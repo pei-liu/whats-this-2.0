@@ -19,6 +19,15 @@ class GamesController < ApplicationController
     redirect_to root_path
   end
 
+  def new
+    if user_logged_in?
+      session.delete(:game_id)
+    else
+      flash[:error] = "Please log in to create a new game!"
+      redirect_to root_path
+    end
+  end
+
   def completed
     @completed_games = Game.where(is_complete: true)
   end
