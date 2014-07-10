@@ -10,14 +10,21 @@ ready = function() {
 
     canvas.renderAll();
     canvas.isDrawingMode = !canvas.isDrawingMode;
-    canvas.freeDrawingBrush.width = 11;
-    canvas.freeDrawingBrush.color = "#fff";
+    canvas.freeDrawingBrush.width = 10;
+    canvas.freeDrawingBrush.color = "#000";
 
     $('.brush-color-controller .color-option').click(function(){
         var color = $(this).css('background-color')
         canvas.freeDrawingBrush.color = color
-        unglowAllBorders($('.brush-color-controller .color-option'))
+        unglowBorder($('.brush-color-controller .color-option'))
         glowBorder($(this))
+    })
+
+    $('.brush-width-controller .width-option').click(function(){
+        var width = $(this).data("width")
+        canvas.freeDrawingBrush.width = width
+        removeBorder($('.brush-width-controller .width-option'))
+        addBottomBorder($(this))
     })
 
     // $('#brush-width')[0].addEventListener('change', function(e) {
@@ -39,7 +46,7 @@ $(document).ready(ready);
 $(document).on('page:load', ready);
 
 
-var unglowAllBorders = function(selector) {
+var unglowBorder = function(selector) {
     selector.removeAttr('outline');
     selector.css('border-color', '#000')
     selector.removeAttr('box-shadow')
@@ -51,8 +58,13 @@ var glowBorder = function(selector) {
     selector.css('box-shadow', '0 0 10px #9ecaed')
 }
 
+var removeBorder = function(selector) {
+    selector.css("border-bottom", "0 solid black")
+}
 
-
+var addBottomBorder = function(selector) {
+    selector.css("border-bottom", "3px solid black")
+}
 
 
 
