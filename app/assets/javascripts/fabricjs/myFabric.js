@@ -39,18 +39,14 @@ ready = function() {
         addBottomBorder($(this))
     })
 
-    // $('#brush-width')[0].addEventListener('change', function(e) {
-    //     canvas.freeDrawingBrush.width = 2 + parseInt($(this).val()) * 3;
-    //     console.log("width: " + canvas.freeDrawingBrush.width)
-    // })
-
-    // $('#save').click(function(e) {
-    //     var svg = canvas.toSVG();
-    //     var data = {svg: svg};
-    //     $.post('/draw', data, function(response) {
-    //         console.log('done');
-    //         window.location.href = '/';
-    //     })
+    $('.save-picture-btn').click(function(e) {
+        var svg = canvas.toSVG();
+        var data = {svg: svg};
+        $.post('/rounds/create_drawing', data, function(response) {
+            console.log('done');
+            // window.location.href = '/';
+        })
+    })
 
 };
 
