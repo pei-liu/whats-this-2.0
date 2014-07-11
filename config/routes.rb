@@ -14,6 +14,7 @@ WhatsThis::Application.routes.draw do
   get '/users/logout' => 'users#logout'
 
   ### ROUNDS
-  post '/rounds' => 'rounds#create' # Creates a new round and adds it to a game
+  post '/rounds/create_drawing' => 'rounds#create_drawing'
+  post '/rounds/create_description' => 'rounds#create_description'
 
 end
