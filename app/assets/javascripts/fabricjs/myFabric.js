@@ -4,7 +4,7 @@ ready = function() {
     var canvas;
 
     canvas = window._canvas = new fabric.Canvas('canvas');
-    canvas.backgroundColor = '#efefef';
+    canvas.backgroundColor = '#fff';
     canvas.setHeight(500);
     canvas.setWidth(500);
 
@@ -17,8 +17,20 @@ ready = function() {
         var color = $(this).css('background-color')
         canvas.freeDrawingBrush.color = color
         unglowBorder($('.brush-color-controller .color-option'))
+        $('.brush-color-controller .color-option').removeClass("active")
         glowBorder($(this))
-    })
+        $(this).addClass("active")
+
+    });
+
+    $('.brush-color-controller .color-option').hover(
+        function() {
+            glowBorder($(this))
+        }, function() {
+            if (!$(this).hasClass("active")) {
+                unglowBorder($(this))
+            }
+        })
 
     $('.brush-width-controller .width-option').click(function(){
         var width = $(this).data("width")
