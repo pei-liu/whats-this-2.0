@@ -14,6 +14,7 @@ WhatsThis::Application.routes.draw do
   get '/users/logout' => 'users#logout'
 
   ### ROUNDS
+  get '/games/:game_id/rounds/new' => 'rounds#new', as: :rounds_new
   post '/rounds/create_drawing' => 'rounds#create_drawing'
   post '/rounds/create_description' => 'rounds#create_description'
 
