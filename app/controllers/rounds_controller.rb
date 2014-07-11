@@ -1,6 +1,24 @@
 class RoundsController < ApplicationController
-  def new
-    
+
+  def new #this needs to be refactored
+    if user_logged_in?
+      @game = Game.find(params[:game_id])
+      if @game.rounds.last.user_id == current_user
+        flash[:error] = "Dude, you can't play your own contribution. Lame."
+        redirect_to root_path
+      else
+        @last_round = @game.rounds.last
+        session[:game_id] = @game.id
+        if @last_round.content_type == "drawing"
+          render :new_description_to_game
+        else
+          render :new_drawing_to_game
+        end
+      end
+    else
+      flash[:error] = "Please sign in or create an account to play."
+      redirect_to root_path
+    end
   end
 
   def create_drawing
@@ -13,7 +31,6 @@ class RoundsController < ApplicationController
                             content: svg,
                             content_type: "drawing")
     end
-    # render nothing: true
     redirect_to root_path
   end
 
