@@ -1,10 +1,4 @@
 class RoundsController < ApplicationController
-  def new_drawing
-  end
-
-  def new_description
-  end
-
   def create_drawing
     svg = params["svg"]
     if session[:game_id] #This is an addition to an existing game
