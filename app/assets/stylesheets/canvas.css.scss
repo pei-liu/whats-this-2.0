@@ -5,16 +5,17 @@ canvas {
 
 .canvas-container {
   clear: left;
+  margin-bottom: 20px;
 }
 
 .brush-width-controller {
-  width: 300px;
+  width: 500px;
   margin-bottom: 25px;
 
   #brush-width-label {
     color: red;
-    font-size: 1.1em;
-    padding-right: 10px;
+    font-size: 1.3em;
+    padding-right: 35px;
   }
   .width-option {
     font-size: 1.3em;
@@ -50,3 +51,20 @@ canvas {
     cursor: pointer;
   }
 }
+
+.save-picture-btn {
+  float: right;
+  margin-right: 100px;
+}
+
+.nav-pills {
+  margin-left: 180px;
+  margin-bottom: 20px;
+}
+
+.tab-pane {
+  width: 600px;
+}
+
+
+
