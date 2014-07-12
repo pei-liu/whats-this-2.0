@@ -22,7 +22,10 @@ svg{
   background-image: url('notebook.png');
   border: 3px solid $color-rounds-border;
   padding-bottom: 100%;
+}
 
+.description-container-sm {
+  font-size: 1.6em;
 }
 
 .inner-description-container {
