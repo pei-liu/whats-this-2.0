@@ -6,4 +6,7 @@ class Game < ActiveRecord::Base
     self.rounds.count >= 10 ? true : false
   end
 
+  def check_finished
+    self.update_attribute("is_complete", true) if self.is_complete?
+  end
 end

@@ -44,7 +44,7 @@ ready = function() {
         var data = {svg: svg};
         $.post('/rounds/create_drawing', data, function(response) {
             console.log('done');
-            // window.location.href = '/';
+            location.href = '/';
         })
     })
 
