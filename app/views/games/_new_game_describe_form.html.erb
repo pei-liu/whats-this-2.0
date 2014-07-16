@@ -1,0 +1,8 @@
+
+
+
+<%= form_tag(rounds_create_description_path, method: "post") do %>
+  <%= label_tag(:description, "Write Something!") %>
+  <%= text_area_tag(:description) %>
+  <%= submit_tag("Submit!") %>
+<% end %>
