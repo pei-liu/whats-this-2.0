@@ -25,7 +25,7 @@ class RoundsController < ApplicationController
     svg = params["svg"]
     if session[:game_id] #This is an addition to an existing game
       game = Game.find(session[:game_id])
-      Round.create( game_id: session[:game_id], 
+      Round.create( game_id: session[:game_id],
                     user_id: current_user,
                     content: svg,
                     content_type: "drawing")
@@ -33,7 +33,7 @@ class RoundsController < ApplicationController
       session.delete(:game_id)
     else #This is the first drawing of a new game
       game = Game.create(user_id: current_user)
-      round = Round.create( game_id: game.id, 
+      round = Round.create( game_id: game.id,
                             user_id: current_user,
                             content: svg,
                             content_type: "drawing")
@@ -42,5 +42,23 @@ class RoundsController < ApplicationController
   end
 
   def create_description
+    description = params["description"]
+    if session[:game_id] #This is an addition to an existing game
+      game = Game.find(session[:game_id])
+      Round.create( game_id: session[:game_id],
+                    user_id: current_user,
+                    content: description,
+                    content_type: "description")
+      game.check_finished
+      session.delete(:game_id)
+
+    else
+      game = Game.create(user_id: current_user)
+      Round.create( game_id: game.id,
+                    user_id: current_user,
+                    content: description,
+                    content_type: "description")
+    end
+    redirect_to root_path
   end
 end
