@@ -5,6 +5,10 @@ svg{
   left: 0;
 }
 
+.outer-svg-container {
+  width: 100%;
+}
+
 .svg-container{
  display: inline-block;
  position: relative;
@@ -12,6 +16,7 @@ svg{
  overflow: hidden;
  padding-bottom: 100%;
  border: 3px solid $color-rounds-border;
+ margin: 0 auto;
 }
 
 .description-container {
