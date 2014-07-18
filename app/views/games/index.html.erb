@@ -48,7 +48,9 @@
                   </div>
                 <% else %>
                   <div class="description-container">
-                    <a href="/games/<%= game.id %>/rounds/new"><%= game.rounds.last.prepared_content %></a>
+                    <div class="inner-description-container">
+                      <a href="/games/<%= game.id %>/rounds/new"><%= game.rounds.last.prepared_content %></a>
+                    </div>
                   </div>
                 <% end %>
 
