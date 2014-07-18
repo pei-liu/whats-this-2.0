@@ -18,7 +18,7 @@
 
                 <% if game.rounds.last.content_type == "drawing" %>
                   <div class="svg-container">
-                    <a href="c"><%= game.rounds.last.prepared_content %></a>
+                    <a href="/games/<%= game.id %>/rounds/new"><%= game.rounds.last.prepared_content %></a>
                   </div>
                 <% else %>
                   <div class="description-container">
