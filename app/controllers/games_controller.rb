@@ -30,5 +30,21 @@ class GamesController < ApplicationController
 
   def completed
     @completed_games = Game.where(is_complete: true)
+    front_end_games_model = @completed_games.each_with_object [] do |game, g_model|
+      round_model = game.rounds.each_with_object [] do |round, r_model|
+        r_model << {  id:           round.id,
+                      player_id:    round.user_id,
+                      content:      round.prepared_content,
+                      content_type: round.content_type }
+      end
+
+      g_model << {  id:         game.id,
+                    creator_id: game.user_id,
+                    rounds:     round_model }
+    end
+
+    @game_model_data_json = front_end_games_model.to_json.html_safe
   end
 end
+
+
