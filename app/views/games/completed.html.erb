@@ -1,8 +1,14 @@
-<div ng-controller="eyeCtrl as eye">
-  <h1>{{eye.title}}</h1>
+<div ng-app="completedGames">
+  <div ng-controller="completedCtrl">
+    <div ng-repeat="game in games">
+      <div ng-bind-html="renderHTML(roundWrapper(game.rounds[0].content, game.rounds[0].content_type))">
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<script type="text/javascript">
-  var gameModelData = <%= @game_model_data_json || '""'.html_safe %>;
-  console.log(gameModelData);
-</script>
+
+
+
+

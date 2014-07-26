@@ -18,4 +18,6 @@ WhatsThis::Application.routes.draw do
   post '/rounds/create_drawing' => 'rounds#create_drawing'
   post '/rounds/create_description' => 'rounds#create_description'
 
+  match '/get_completed_games', to: 'games#get_completed_games', via: 'get'
+
 end
