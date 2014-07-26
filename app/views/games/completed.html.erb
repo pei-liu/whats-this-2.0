@@ -1,4 +1,8 @@
+<div ng-controller="eyeCtrl as eye">
+  <h1>{{eye.title}}</h1>
+</div>
+
 <script type="text/javascript">
   var gameModelData = <%= @game_model_data_json || '""'.html_safe %>;
-  console.log(gameModelData)
+  console.log(gameModelData);
 </script>
