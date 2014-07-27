@@ -10,13 +10,12 @@ svg{
 }
 
 .svg-container{
- display: inline-block;
- position: relative;
- width: 100%;
- overflow: hidden;
- padding-bottom: 100%;
- border: 3px solid $color-rounds-border;
- margin: 0 auto;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 100%;
+  // border: 3px solid $color-rounds-border;
 }
 
 .description-container {
@@ -25,7 +24,7 @@ svg{
   width: 100%;
   overflow: hidden;
   background-image: url('notebook.png');
-  border: 3px solid $color-rounds-border;
+  // border: 3px solid $color-rounds-border;
   padding-bottom: 100%;
 }
 
