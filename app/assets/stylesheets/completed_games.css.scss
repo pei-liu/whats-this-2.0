@@ -1,0 +1,39 @@
+.completed-square-description-container,
+.square-svg-container {
+  float:left;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  margin: 5%;
+  overflow: hidden;
+  border: 1px solid black;
+}
+
+
+
+.completed-square-description-container {
+  background-image: url('notebook.png');
+  a {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 10% 8%;
+    text-decoration: none;
+    font-size: 1.1em;
+    text-align: center;
+
+    .completed-description-container-table {
+      display: table;
+      height: 100%;
+      width: 100%;
+
+      .completed-description-container-table-cell {
+        display: table-cell;
+        vertical-align: middle;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+
+}

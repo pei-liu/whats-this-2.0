@@ -31,7 +31,7 @@ end
 end
 
 #COMPLETED GAMES WHERE LAST ROUND IS A DESCRIPTION
-2.times do
+10.times do
   game = Game.create(user_id: gamemaker.id)
   game.update_attribute(:is_complete, true)
   3.times do
@@ -41,7 +41,7 @@ end
 end
 
 #COMPLETED GAMES WHERE LAST ROUND IS A DRAWING
-5.times do
+10.times do
   game = Game.create(user_id: gamemaker.id)
   game.update_attribute(:is_complete, true)
   3.times do
