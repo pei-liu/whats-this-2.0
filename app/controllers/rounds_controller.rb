@@ -52,7 +52,7 @@ class RoundsController < ApplicationController
       game.check_finished
       session.delete(:game_id)
 
-    else
+    else #This is the first drawing of a new game
       game = Game.create(user_id: current_user)
       Round.create( game_id: game.id,
                     user_id: current_user,
