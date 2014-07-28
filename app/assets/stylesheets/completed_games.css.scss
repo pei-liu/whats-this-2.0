@@ -1,15 +1,11 @@
 .completed-square-description-container,
 .square-svg-container {
-  float:left;
   position: relative;
   width: 100%;
   padding-bottom: 100%;
   margin: 5%;
-  overflow: hidden;
   border: 1px solid black;
 }
-
-
 
 .completed-square-description-container {
   background-image: url('notebook.png');
@@ -35,5 +31,20 @@
       }
     }
   }
+}
 
+.modal-game {
+  .modal-dialog {
+    width: 95%;
+    overflow-x: scroll;
+  }
+  .modal-content {
+    min-height: 430px;
+    width: 4100px;
+  }
+  .frames {
+    width: 360px;
+    float: left;
+    margin: 0 20px;
+  }
 }

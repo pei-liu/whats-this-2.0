@@ -34,7 +34,7 @@ end
 10.times do
   game = Game.create(user_id: gamemaker.id)
   game.update_attribute(:is_complete, true)
-  3.times do
+  5.times do
     Round.create( game_id: game.id, user_id: player.id, content: svg, content_type: "drawing")
     Round.create(game_id: game.id, user_id: player.id, content: description, content_type: "description")
   end
@@ -44,7 +44,7 @@ end
 10.times do
   game = Game.create(user_id: gamemaker.id)
   game.update_attribute(:is_complete, true)
-  3.times do
+  5.times do
     Round.create(game_id: game.id, user_id: player.id, content: description, content_type: "description")
     Round.create( game_id: game.id, user_id: player.id, content: svg, content_type: "drawing")
   end
