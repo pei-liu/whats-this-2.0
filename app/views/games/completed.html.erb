@@ -6,32 +6,20 @@
       </div>
     </div>
 
-
     <div class="modal fade modal-game" id="completedGameModal">
-
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-body">
-
-                <div ng-repeat="round in activeGame.rounds" class="frames">
-                  <div ng-bind-html="renderHTML(roundWrapper(round.content, round.content_type))">
-                  </div>
-                </div> <!-- ng-repeat -->
-            </div> <!-- modal-body -->
-          </div> <!-- modal-content -->
-
-        </div> <!-- modal-dialog -->
-
-
-
-
-
-
-    </div>
-
-
-  </div>
-</div>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div ng-repeat="round in activeGame.rounds" class="frames">
+              <div ng-bind-html="renderHTML(roundWrapper(round.content, round.content_type))">
+              </div>
+            </div> <!-- ng-repeat -->
+          </div> <!-- .modal-body -->
+        </div> <!-- .modal-content -->
+      </div> <!-- .modal-dialog -->
+    </div> <!-- .modal -->
+  </div> <!-- ng-controller="completedCtrl" -->
+</div> <!-- ng-app="completedGames" -->
 
 
 
