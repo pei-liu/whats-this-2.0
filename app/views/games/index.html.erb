@@ -17,21 +17,22 @@
               <div class="col-sm-4">
 
                 <% if game.rounds.last.content_type == "drawing" %>
-                  <div class="svg-container">
+                  <div class="square-svg-container">
                     <a href="/games/<%= game.id %>/rounds/new"><%= game.rounds.last.prepared_content %></a>
                   </div>
                 <% else %>
-                  <div class="description-container">
-                    <div class="inner-description-container">
-                      <a href="/games/<%= game.id %>/rounds/new"><%= game.rounds.last.prepared_content %></a>
-                    </div>
+                  <div class="completed-square-description-container">
+                    <a href="/games/<%= game.id %>/rounds/new">
+                      <div class="completed-description-container-table">
+                        <div class="completed-description-container-table-cell">
+                          <%= game.rounds.last.prepared_content %>
+                        </div>
+                      </div>
+                    </a>
                   </div>
                 <% end %>
-
-
               </div>
             <% end %>
-
           </div><!--/row-->
         </div><!--/item-->
 
@@ -43,14 +44,18 @@
 
 
                 <% if game.rounds.last.content_type == "drawing" %>
-                  <div class="svg-container">
+                  <div class="square-svg-container">
                     <a href="/games/<%= game.id %>/rounds/new"><%= game.rounds.last.prepared_content %></a>
                   </div>
                 <% else %>
-                  <div class="description-container">
-                    <div class="inner-description-container">
-                      <a href="/games/<%= game.id %>/rounds/new"><%= game.rounds.last.prepared_content %></a>
-                    </div>
+                  <div class="completed-square-description-container">
+                    <a href="/games/<%= game.id %>/rounds/new">
+                      <div class="completed-description-container-table">
+                        <div class="completed-description-container-table-cell">
+                          <%= game.rounds.last.prepared_content %>
+                        </div>
+                      </div>
+                    </a>
                   </div>
                 <% end %>
 
