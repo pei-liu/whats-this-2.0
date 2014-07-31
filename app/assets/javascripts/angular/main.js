@@ -14,16 +14,16 @@
 
     $scope.roundWrapper = function(htmlCode, type) {
       if(type==="drawing") {
-        html = '<div class="square-svg-container">'
+        html = '<div class="completed svg-container">'
         html += '<a href="#" data-toggle="modal" data-target="#completedGameModal">'
         html += htmlCode
         html += '</a></div>'
         return html
       } else {
-        html = '<div class="completed-square-description-container">'
+        html = '<div class="completed description-container">'
         html += '<a href="#" data-toggle="modal" data-target="#completedGameModal">'
-        html += '<div class="completed-description-container-table">'
-        html += '<div class="completed-description-container-table-cell">'
+        html += '<div class="description-container-table">'
+        html += '<div class="description-container-table-cell">'
         html += htmlCode
         html += '</div></div></a></div>'
         return html

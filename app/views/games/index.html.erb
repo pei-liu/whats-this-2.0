@@ -17,14 +17,14 @@
               <div class="col-sm-4">
 
                 <% if game.rounds.last.content_type == "drawing" %>
-                  <div class="square-svg-container">
+                  <div class="svg-container">
                     <a href="/games/<%= game.id %>/rounds/new"><%= game.rounds.last.prepared_content %></a>
                   </div>
                 <% else %>
-                  <div class="completed-square-description-container">
+                  <div class="description-container">
                     <a href="/games/<%= game.id %>/rounds/new">
-                      <div class="completed-description-container-table">
-                        <div class="completed-description-container-table-cell">
+                      <div class="description-container-table">
+                        <div class="description-container-table-cell">
                           <%= game.rounds.last.prepared_content %>
                         </div>
                       </div>
@@ -44,14 +44,14 @@
 
 
                 <% if game.rounds.last.content_type == "drawing" %>
-                  <div class="square-svg-container">
+                  <div class="svg-container">
                     <a href="/games/<%= game.id %>/rounds/new"><%= game.rounds.last.prepared_content %></a>
                   </div>
                 <% else %>
-                  <div class="completed-square-description-container">
+                  <div class="description-container">
                     <a href="/games/<%= game.id %>/rounds/new">
-                      <div class="completed-description-container-table">
-                        <div class="completed-description-container-table-cell">
+                      <div class="description-container-table">
+                        <div class="description-container-table-cell">
                           <%= game.rounds.last.prepared_content %>
                         </div>
                       </div>
