@@ -1,5 +1,8 @@
 (function(){
-  angular.module("app", ['app.controllers']);
+  angular.module("app", [
+    'completedGames',
+    'tabs'
+    ]);
 })();
 
 

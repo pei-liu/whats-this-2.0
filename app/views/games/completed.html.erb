@@ -1,5 +1,5 @@
 <div ng-app="app">
-  <div ng-controller="completedCtrl">
+  <div ng-controller="CompletedCtrl">
 
     <div ng-repeat="game in games" class="col-md-3 col-sm-4 col-xs-6" ng-click="setActiveGame(game)">
       <div ng-bind-html="renderHTML(roundWrapper(game.rounds[0].content, game.rounds[0].content_type))">
