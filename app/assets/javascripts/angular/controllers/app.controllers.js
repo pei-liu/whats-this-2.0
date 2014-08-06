@@ -1,9 +1,5 @@
-
-(function(){
-  var app = angular.module("completedGames", []);
-
-
-  app.controller("completedCtrl", [ '$scope', '$http', '$sce', function($scope, $http, $sce){
+angular.module('app.controllers', []).  
+  controller("completedCtrl", [ '$scope', '$http', '$sce', function($scope, $http, $sce){
     $scope.games = [];
     $scope.activeGame = [];
 
@@ -40,10 +36,3 @@
     })
 
   }])
-})();
-
-
-
-
-
-
