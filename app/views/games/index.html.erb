@@ -22,16 +22,17 @@
                   </div>
                 <% else %>
                   <div class="description-container">
-                    <div class="inner-description-container">
-                      <a href="/games/<%= game.id %>/rounds/new"><%= game.rounds.last.prepared_content %></a>
-                    </div>
+                    <a href="/games/<%= game.id %>/rounds/new">
+                      <div class="description-container-table">
+                        <div class="description-container-table-cell">
+                          <%= game.rounds.last.prepared_content %>
+                        </div>
+                      </div>
+                    </a>
                   </div>
                 <% end %>
-
-
               </div>
             <% end %>
-
           </div><!--/row-->
         </div><!--/item-->
 
@@ -48,9 +49,13 @@
                   </div>
                 <% else %>
                   <div class="description-container">
-                    <div class="inner-description-container">
-                      <a href="/games/<%= game.id %>/rounds/new"><%= game.rounds.last.prepared_content %></a>
-                    </div>
+                    <a href="/games/<%= game.id %>/rounds/new">
+                      <div class="description-container-table">
+                        <div class="description-container-table-cell">
+                          <%= game.rounds.last.prepared_content %>
+                        </div>
+                      </div>
+                    </a>
                   </div>
                 <% end %>
 

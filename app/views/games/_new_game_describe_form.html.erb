@@ -1,5 +1,7 @@
-<%= form_tag(rounds_create_description_path, method: "post") do %>
-  <%= label_tag(:description, "Write Something!") %>
-  <%= text_area_tag(:description) %>
-  <%= submit_tag("Submit!") %>
+<%= form_tag(rounds_create_description_path) do %>
+  <div class="form-group">
+    <%= label_tag(:description, "Write Something!") %>
+    <%= text_area_tag 'description', nil, rows: 5, class: 'form-control' %>
+  </div>
+  <%= button_tag 'Submit!', class: 'btn btn-primary' %>
 <% end %>
