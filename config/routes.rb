@@ -1,6 +1,7 @@
 WhatsThis::Application.routes.draw do
 
   root 'games#index' # Home page.  Has all in progress games.
+  get '/test' => 'games#test' # Sandbox
 
   ### GAMES
   post '/games' => 'games#create' # Create a new game in database

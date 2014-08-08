@@ -1,4 +1,8 @@
 class GamesController < ApplicationController
+  def test  
+    @round = Game.last.rounds.first
+  end
+
   def index
     games = Game.where(is_complete: false)
     @first_game_set = games.shift(3)

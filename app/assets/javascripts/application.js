@@ -8,5 +8,6 @@
 //= require_directory ./angular/controllers
 //= require_directory ./carousel
 //= require_directory ./fabricjs
+//= require_directory ./test
 //= require tabs
 // ...
