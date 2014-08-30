@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   def test  
-    @round = Round.find(276)
+    @round = Round.find(1)
     p @round.prepared_content
   end
 
